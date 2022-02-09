@@ -10,40 +10,39 @@ body, .clock-border1, .clock-border2, .clock {
     align-items: center;
 }
 .clock-border1 {
-    height: 558px;
-    width: 558px;
+    aspect-ratio: 1 / 1; /* paired with a height or width percentage to adjust both evenly */
+    width: 40vw;
+    min-width: 300px;
+    max-width: 800px;
     border-radius: 100%;
-    background-color: black;  
-    
+    background-color: black;   
 }
 .clock-border2 {
-    height: 550px;
-    width: 550px;
+    height: 99%;
+    width: 99%;
     border-radius: 100%;
     background-color: black;  
     box-shadow: 4px 4px 4px rgba(128, 128, 128, 0.822) inset;
 }
 .clock {
-    height: 520px;
-    width: 520px;
+    height: 93%;
+    width: 93%;
     border-radius: 100%;
     border: 4px solid rgb(0, 0, 0);
     background-color: rgba(255, 255, 255, 0.257);  
     backdrop-filter: blur(5px);
     box-shadow: 8px 8px 8px 2px rgba(128, 128, 128, 0.822) inset;
 }
-
-#clock-numbers {
-    height: 450px;
-    width: 450px;
+#clock-numbers-container {
+    height: 90%;
+    width: 90%;
     position: relative;
 }
 .clock-numbers {
     position: absolute;
-    font-size: 35px;
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
-    transform: translate(-50%, -50%);    
+    transform: translate(-50%, -50%); /* shifts each text box over half its width X anf up half its height Y to line up properly */   
 }
 #clock-number1 {
     left: 75%;
@@ -92,5 +91,55 @@ body, .clock-border1, .clock-border2, .clock {
 #clock-number12 {
     left: 50%;
     top: 0%;
-
 } 
+#hour-hand {
+    position: absolute;
+    bottom: 50%;
+    border-radius: 100%/8%;
+    height: 25%;
+    width: 2%;
+    background-color: black;
+    transform-origin: bottom;
+}
+#minute-hand {
+    position: absolute;
+    bottom: 50%;
+    border-radius: 100%/4%;
+    height: 42%;
+    width: 1.5%;
+    background-color: black;
+    transform-origin: bottom;
+    z-index: 3;
+}
+#second-hand {
+    position: absolute;
+    bottom: 50%;
+    border-radius: 100%/2%;
+    height: 47%;
+    width: 0.35%;
+    background-color: rgba(207, 2, 2, 0.897);
+    transform-origin: bottom;
+    z-index: 2;
+}
+#middle-point {
+    position: absolute;
+    border-radius: 100%;
+    height: 5%;
+    width: 5%;
+    z-index: 4;
+    background-color: black;
+}
+#middle-highlight {
+    position: absolute;
+    border-radius: 100%;
+    box-shadow: 2px 2px 2px rgba(128, 128, 128, 0.822) inset;
+    height: 3%;
+    width: 3%;
+    z-index: 5;
+}
+
+#signature {
+    position: absolute;
+    font-family: 'Nunito', sans-serif;
+    bottom: -18%;
+}
