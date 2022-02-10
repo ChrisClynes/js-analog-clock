@@ -3,6 +3,7 @@ body {
     text-align: center;
     min-height: 100vh;
     background-image: radial-gradient(circle, rgba(58, 10, 231, 0.705), rgb(2, 0, 109));
+    overflow: hidden;/* needed for firefox to remove scrolling on page */
 }
 body, .clock-border1, .clock-border2, .clock {
     display: flex;
@@ -12,6 +13,7 @@ body, .clock-border1, .clock-border2, .clock {
 .clock-border1 {
     aspect-ratio: 1 / 1; /* paired with a height or width percentage to adjust both evenly */
     width: 40vw;
+    height: 100%;
     min-width: 300px;
     max-width: 800px;
     border-radius: 100%;
@@ -32,6 +34,7 @@ body, .clock-border1, .clock-border2, .clock {
     background-color: rgba(255, 255, 255, 0.257);  
     backdrop-filter: blur(5px);
     box-shadow: 8px 8px 8px 2px rgba(128, 128, 128, 0.822) inset;
+    position: relative;
 }
 #clock-numbers-container {
     height: 90%;
@@ -93,7 +96,8 @@ body, .clock-border1, .clock-border2, .clock {
     top: 0%;
 } 
 #hour-hand {
-    position: absolute;
+    position: absolute; /* parent container applied relative position */
+    display: flex;
     bottom: 50%;
     border-radius: 100%/8%;
     height: 25%;
@@ -137,7 +141,6 @@ body, .clock-border1, .clock-border2, .clock {
     width: 3%;
     z-index: 5;
 }
-
 #signature {
     position: absolute;
     font-family: 'Nunito', sans-serif;
