@@ -38,8 +38,9 @@ function calcTime() {
         hourHand.style.transform = "rotate(" + hoursDeg + "deg)";
     }
 
-window.onload = positionNumbers();
-window.onload = scaleFontSize();
-window.onload = calcTime();
+window.onload = positionNumbers(),
+                scaleFontSize(),
+                calcTime();
+                
 window.onresize = scaleFontSize;
 
