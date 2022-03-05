@@ -1,17 +1,6 @@
 setInterval(()=>{calcTime()},1000);
 
-positionNumbers=() => {
-    for(let i = 1; i <= 12; i++){
-        const clockNumbers = document.getElementById("clock-numbers-container");
-        const createNumberDiv = document.createElement('div');
-            createNumberDiv.setAttribute('id', 'clock-number'+ i);
-            createNumberDiv.classList.add('clock-numbers');
-            createNumberDiv.innerText= i;
-            clockNumbers.appendChild(createNumberDiv);
-            //loops through 1-12 to create divs and set id and class, may remove to speed up onload performance
-    }
-}
-
+//alternative option to JS function for auto scaling fon size could be CSS font-size: clamp(2rem, 1rem + 10vw,  10rem)
 scaleFontSize=() => {
     let clockWidth = document.getElementById("clock-container").clientWidth;
     let numbers = document.getElementsByClassName("clock-numbers");
@@ -38,9 +27,7 @@ function calcTime() {
         hourHand.style.transform = "rotate(" + hoursDeg + "deg)";
     }
 
-window.onload = positionNumbers(),
-                scaleFontSize(),
-                calcTime();
+window.onload = scaleFontSize(), calcTime();
                 
 window.onresize = scaleFontSize;
 
